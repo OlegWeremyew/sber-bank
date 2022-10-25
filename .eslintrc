@@ -57,6 +57,11 @@
     "default-param-last": "off",
     "no-use-before-define": "off",
     "react/style-prop-object": "off",
+    "react/function-component-definition": "off",
+    "import/no-unresolved": "off",
+    "global-require": "off",
+    "import/no-dynamic-require": "off",
+    "no-nested-ternary": "off",
     "jsx-quotes": [
       "error",
       "prefer-double"
