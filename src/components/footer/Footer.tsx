@@ -15,16 +15,16 @@ export const Footer: FC = () => {
   return (
     <View style={styles.footerContainer}>
       <Pressable style={styles.footerItem} onPress={() => handlerSetActiveItem(0)}>
-        <Entypo name="home" size={30} color={activeItem === 0 ? 'red' : 'gray'} />
+        <Entypo name="home" size={30} color={activeItem === 0 ? 'darkred' : 'gray'} />
       </Pressable>
       <Pressable style={styles.footerItem} onPress={() => handlerSetActiveItem(1)}>
-        <Entypo name="flash" size={30} color={activeItem === 1 ? 'red' : 'gray'} />
+        <Entypo name="flash" size={30} color={activeItem === 1 ? 'darkred' : 'gray'} />
       </Pressable>
       <Pressable style={styles.footerItem} onPress={() => handlerSetActiveItem(2)}>
-        <Entypo name="user" size={30} color={activeItem === 2 ? 'red' : 'gray'} />
+        <Entypo name="user" size={30} color={activeItem === 2 ? 'darkred' : 'gray'} />
       </Pressable>
       <Pressable style={styles.footerItem} onPress={() => handlerSetActiveItem(3)}>
-        <Entypo name="bell" size={30} color={activeItem === 3 ? 'red' : 'gray'} />
+        <Entypo name="bell" size={30} color={activeItem === 3 ? 'darkred' : 'gray'} />
       </Pressable>
     </View>
   );
