@@ -1,6 +1,9 @@
 export const COLORS = {
   ACCENT: '#289256',
   BG_GRAY: '#141414',
+  TEXT_GRAY: '#8D9699',
+  TEXT_WHITE: '#FFF',
+  SHADOW_COLOR: '#000',
 };
 
 export const STYLES: any = {
