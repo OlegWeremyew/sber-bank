@@ -62,6 +62,7 @@
     "global-require": "off",
     "import/no-dynamic-require": "off",
     "no-nested-ternary": "off",
+    "no-return-await": "off",
     "jsx-quotes": [
       "error",
       "prefer-double"

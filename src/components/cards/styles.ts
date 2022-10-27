@@ -38,6 +38,6 @@ export const styles = StyleSheet.create({
   cardContainer: {
     marginVertical: 50,
     overflow: 'hidden',
-    height: 300,
+    height: 320,
   },
 });

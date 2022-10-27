@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -6,7 +6,7 @@ import { auth } from '../../utils/firebase';
 
 export const useAuth = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [user, setUser] = useState<SetStateAction<{}> | null>({});
+  const [user, setUser] = useState<any>({});
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, user => {
@@ -21,7 +21,7 @@ export const useAuth = () => {
     return () => unSub();
   }, []);
 
-  const values = {
+  const values: any = {
     user,
     isLoggedIn,
   };

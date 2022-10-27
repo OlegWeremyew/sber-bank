@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
     padding: 20,
     backgroundColor: '#2C2C2C',
+    width: 160,
   },
   pressItemContainer: {
     alignItems: 'center',

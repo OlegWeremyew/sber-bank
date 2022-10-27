@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     ...STYLES.flexDefault,
     justifyContent: 'space-around',
+    paddingTop: 70,
   },
   footerItem: {
     height: 50,

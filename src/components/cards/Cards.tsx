@@ -25,6 +25,7 @@ export const Cards: FC = () => {
     shadowColor: COLORS.SHADOW_COLOR,
     transform: [{ rotate: index === 1 ? '12deg' : index === 2 ? '24deg' : '0deg' }],
     ...STYLES.boxShadow,
+    height: 230,
   });
 
   return (
@@ -33,14 +34,14 @@ export const Cards: FC = () => {
         <View key={card.id} style={handlerGetItemStyle(index)}>
           <Image source={creditCardChip} style={styles.chipImg} />
           <Text style={styles.cardNumber}>{card.number}</Text>
-          <View style={styles.userInfoBlock}>
+          <View style={[styles.userInfoBlock, { marginTop: 30 }]}>
             <View style={styles.userInfoBlock}>
               <View>
                 <Text style={styles.userIntroText}>Card holder</Text>
-                <Text style={styles.userName}>{user.name}</Text>
+                <Text style={styles.userName}>{user?.email}</Text>
               </View>
             </View>
-            <View>
+            <View style={{ alignItems: 'center' }}>
               <Image source={card.img} style={styles.cardLogo} />
               <Text style={styles.cardText}>{card.type}</Text>
             </View>

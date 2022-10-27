@@ -17,7 +17,7 @@ export const Header: FC = () => {
   return (
     <View style={styles.headerContainer}>
       <View>
-        <Text style={styles.userGreeting}>Hi {user?.name}</Text>
+        <Text style={styles.userGreeting}>Hi {user?.email}</Text>
         <Text style={styles.userGreetingText}>Welcome back</Text>
       </View>
       <View>
