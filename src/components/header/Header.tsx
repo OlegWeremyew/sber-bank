@@ -4,15 +4,16 @@ import { View, Text, TouchableHighlight, Image, Linking } from 'react-native';
 
 import userImage from '../../assets/app-image/user-image.png';
 import { useAuth } from '../../hooks';
+import { logout } from '../../utils/firebase';
 
 import { styles } from './styles';
 
 export const Header: FC = () => {
   const { user } = useAuth();
 
-  const handlerRedirectOnGooglePage = () => {
-    Linking.openURL('https://www.google.ru/');
-  };
+  // const handlerRedirectOnGooglePage = () => {
+  //   Linking.openURL('https://www.google.ru/');
+  // };
 
   return (
     <View style={styles.headerContainer}>
@@ -21,7 +22,7 @@ export const Header: FC = () => {
         <Text style={styles.userGreetingText}>Welcome back</Text>
       </View>
       <View>
-        <TouchableHighlight onPress={handlerRedirectOnGooglePage}>
+        <TouchableHighlight onPress={async () => await logout()}>
           <Image source={userImage} style={styles.userImage} />
         </TouchableHighlight>
       </View>

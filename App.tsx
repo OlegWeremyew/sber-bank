@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { StatusBar } from 'expo-status-bar';
 import {
-  Pressable,
   SafeAreaView,
   StyleSheet,
   TextInput,
   View,
   Text,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 import { COLORS } from './constants';
@@ -19,57 +19,60 @@ import { login } from './src/utils/firebase';
 export default function App() {
   // @ts-ignore
   const { isLoggedIn } = useAuth;
+  const [isLog, setIsLog] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState<string>('');
+
   return (
-    <View style={styles.container}>
-      <View style={{ width: '95%' }}>
-        {!isLoggedIn ? (
-          <>
+    <SafeAreaView style={styles.container}>
+      {isLog ? (
+        <View>
+          <ScrollView style={{ height: '100%' }}>
             <Header />
             <Cards />
             <Balance />
             <QuickActions />
-            <Footer />
-          </>
-        ) : (
-          <SafeAreaView style={{ width: 250 }}>
-            <TextInput
-              style={styles.input}
-              onChangeText={setEmail}
-              value={email}
-              placeholder="Enter email"
-              keyboardType="default"
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={setPassword}
-              value={password}
-              placeholder="Enter password"
-              keyboardType="default"
-              secureTextEntry
-            />
-            <TouchableOpacity
-              style={styles.loginButton}
-              onPress={async () => await login(email, password)}
-            >
-              <Text style={styles.loginButtonText}>Sign in</Text>
-            </TouchableOpacity>
-          </SafeAreaView>
-        )}
-      </View>
+          </ScrollView>
+          <Footer />
+        </View>
+      ) : (
+        <SafeAreaView style={{ width: 250 }}>
+          <TextInput
+            style={styles.input}
+            onChangeText={setEmail}
+            value={email}
+            placeholder="Enter email"
+            keyboardType="default"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={setPassword}
+            value={password}
+            placeholder="Enter password"
+            keyboardType="default"
+            secureTextEntry
+          />
+          <TouchableOpacity
+            style={styles.loginButton}
+            onPress={async () => {
+              // await login(email, password);
+              setIsLog(true);
+            }}
+          >
+            <Text style={styles.loginButtonText}>Sign in</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      )}
       <StatusBar style="light" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 100,
-    height: '100%',
-    padding: 24,
-    paddingBottom: 75,
+    flex: 1,
+    paddingTop: 24,
     backgroundColor: COLORS.BG_GRAY,
     alignItems: 'center',
     justifyContent: 'center',

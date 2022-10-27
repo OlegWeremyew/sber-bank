@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import { onAuthStateChanged } from 'firebase/auth';
+import { AsyncStorage } from 'react-native';
 
 import { auth } from '../../utils/firebase';
 
@@ -9,14 +10,26 @@ export const useAuth = () => {
   const [user, setUser] = useState<any>({});
 
   useEffect(() => {
-    const unSub = onAuthStateChanged(auth, user => {
+    // const getFromAsyncStorage = async () => {
+    //   const userAS = await AsyncStorage.setItem('user', user);
+    //   // @ts-ignore
+    //   if (userAS) {
+    //     setUser(userAS);
+    //     setIsLoggedIn(true);
+    //   }
+    // };
+    // getFromAsyncStorage();
+
+    const unSub = onAuthStateChanged(auth, async (user: any) => {
       if (user) {
         setIsLoggedIn(true);
         setUser(user);
-        return;
+        // await AsyncStorage.setItem('user', user);
+      } else {
+        setIsLoggedIn(false);
+        setUser({});
+        // await AsyncStorage.setItem('user', {} as any);
       }
-      setIsLoggedIn(false);
-      setUser({});
     });
     return () => unSub();
   }, []);

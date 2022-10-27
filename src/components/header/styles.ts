@@ -22,4 +22,13 @@ export const styles = StyleSheet.create({
     height: 50,
     borderRadius: 50,
   },
+  logoutButton: {
+    width: '90%',
+    height: 40,
+    margin: 12,
+    backgroundColor: 'green',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
 });
